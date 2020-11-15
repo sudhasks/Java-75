@@ -4,6 +4,6 @@ public class Welcome
  {
 	System.out.println("Welcome to Java"); 
 	System.out.print("by ");
-	System.out.println("team @ edureka");	
+	System.out.println("team @ edureka");
  }
 }
