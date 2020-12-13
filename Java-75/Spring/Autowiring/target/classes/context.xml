@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	<context:annotation-config></context:annotation-config>
+	<bean id="prod_1" class="co.edureka.entity.Product">
+		<property name="prodId" value="1000134" />
+		<property name="prodName" value="Mobile" />
+		<property name="prodPrice" value="25000.50" />
+	</bean>
+	
+	<bean id="inventory" class="co.edureka.Inventory">
+	</bean>
+</beans>
