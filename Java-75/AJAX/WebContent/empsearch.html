@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>edureka | employee search</title>
+<link rel="stylesheet" href="css/styles.css"/>
+</head>
+
+<body>
+ <h1>edureka | employee | search</h1>
+ <div id="wrapper"> 
+   <table>
+     <tr>
+       <td>
+        <label for="">EMP NO</label>
+       </td>
+       <td>
+        <input type="text" size="20" autofocus onblur="getDetails(this.value)">
+       </td>
+     </tr>
+
+     <tr>
+       <td>
+        <label for="">NAME</label>
+       </td>
+       <td>
+        <span id="label_name"></span>
+       </td>
+     </tr>
+     
+     <tr>
+       <td>
+        <label for="">SALARY</label>
+       </td>
+       <td>
+        <span id="label_sal"></span>
+       </td>
+     </tr>     
+   </table> 
+ </div>
+ 
+ <!--  java script section-->
+ <script>
+  let xhr;
+  function getDetails(eno){
+	//create an XMLHttpRequest instance
+	xhr = new XMLHttpRequest();
+	
+	xhr.open("GET","search?eno="+eno, true);
+	
+	xhr.onreadystatechange = fun1;
+	
+	xhr.send();
+  }
+  
+  function fun1(){
+	  alert('state = '+ xhr.readyState)
+	  if(xhr.readyState == 4 && xhr.status==200){
+		  let response = xhr.responseText;
+		  
+		  let name = 'NO MATCH';
+		  let sal = 'NO MATCH';
+		  
+		  if(response.length > 2){
+			  //convert response text to JSON object
+			  let json_response = JSON.parse(response);
+			  name = json_response.name;
+			  sal = json_response.salary;			  
+		  }
+		  //DOM 
+		  document.querySelector('#label_name').innerText = name
+		  document.querySelector('#label_sal').innerText = sal
+	  }
+  }
+ </script>
+</body>
+</html>
